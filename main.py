@@ -52,10 +52,12 @@ class Game:
 
             if self.the_snake.head.xcor() > 240 or self.the_snake.head.xcor() < -240 or self.the_snake.head.ycor() > 240 or self.the_snake.head.ycor() < -240:
                 self.is_running = False
+                self.scoreboard.game_high_score()
                 self.scoreboard.game_over()
 
             for segment in self.the_snake.snake_body[1:]:
                 if self.the_snake.head.distance(segment) < 9:
+                    self.scoreboard.game_high_score()
                     self.is_running = False
                     self.scoreboard.game_over()
 
